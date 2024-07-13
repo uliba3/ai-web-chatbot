@@ -8,7 +8,7 @@
     "48": "google-gemini-icon.png",
     "128": "google-gemini-icon.png"
   },
-  "permissions": ["activeTab", "scripting", "storage"],
+  "permissions": ["storage"],
   "background": {
     "service_worker": "background.js",
     "type": "module"
@@ -24,9 +24,8 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["popup.html", "popup.css", "chatIcon.svg", "icon.png"],
+      "resources": ["google-gemini-icon.png", "content.js", "icon.png"],
       "matches": ["<all_urls>"]
     }
-  ],
-  "host_permissions": ["<all_urls>"]
+  ]
 }

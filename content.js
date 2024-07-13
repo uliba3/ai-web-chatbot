@@ -16,15 +16,12 @@ chatBox.style.fontSize = '30px';
 chatBox.style.cursor = 'pointer';
 chatBox.title = 'Open Chat';
 chatBox.style.zIndex = '10000'; // Ensure chat icon is always over everything else
-const svgUrl = chrome.runtime.getURL('chatIcon.svg');
-fetch(svgUrl)
-  .then(response => response.text())
-  .then(svgContent => {
-    chatBox.innerHTML = svgContent;
-  })
-  .catch(error => console.error('Error loading the SVG:', error));
-
-// Append the box to the body
+const chatIcon = document.createElement('img');
+chatIcon.src = chrome.runtime.getURL('google-gemini-icon.png');
+chatIcon.style.width = '48px';
+chatIcon.style.height = '48px';
+chatIcon.draggable = false;
+chatBox.appendChild(chatIcon);
 document.body.appendChild(chatBox);
 
 let apiKey = null;
@@ -139,20 +136,22 @@ function toggleChatUI() {
         header.style.borderBottom = '1px solid #E5E7EB';
         header.style.color = '#111827';
 
+        const linkIcon = document.createElement('a');
+        linkIcon.href = 'https://google.com';
+
         const icon = document.createElement('img'); // Assuming you're using an image as an icon
-        const iconUrl = chrome.runtime.getURL('icon.png'); // Retrieve the icon URL correctly
         icon.id = 'gemini-chat-icon';
-        icon.src = iconUrl; // Set the path to your icon image
+        icon.src = chrome.runtime.getURL('icon.png'); // Set the path to your icon image
         icon.style.width = '24px'; // Adjust size as needed
         icon.style.height = '24px'; // Adjust size as needed
         icon.style.marginRight = '10px'; // Space between icon and text
-        icon.style.cursor = 'pointer';
         // Create the text element
         const text = document.createElement('span');
         text.textContent = 'Chat';
 
         // Append icon and text to the header
-        header.appendChild(icon);
+        linkIcon.appendChild(icon);
+        header.appendChild(linkIcon);
         header.appendChild(text);
 
         // Append the header to the chatUI
