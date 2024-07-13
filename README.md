@@ -72,8 +72,28 @@ If you encounter issues with the Gemini Web Chatbot, try the following steps:
 2. Check that the extension has the necessary permissions enabled.
 3. Reload the extension by going to `chrome://extensions/` and clicking the reload icon next to the Gemini Web Chatbot.
 
-## Contributors
-- **Your Name** - Initial development and documentation.
+## Privacy Policy
 
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+### No Data Collection
+The Gemini Web Chatbot is designed with user privacy as a top priority. We want to assure our users that:
+
+1. **We Do Not Collect Any Data:** This extension does not collect, store, or transmit any personal information, browsing history, or chat data.
+
+2. **Local Processing:** All interactions with the chatbot occur locally on your device. The extension uses the content of the current web page and your queries to generate responses, but this information is not saved or sent to any external servers (except for the necessary API calls to Google's Generative AI service).
+
+3. **API Key Storage:** Your Google Generative AI API key is stored securely in your browser's local storage. It is used solely for authentication purposes with Google's API and is not accessible to us or any third parties.
+
+### Data Handling
+- **Web Page Content:** The extension temporarily accesses the content of the web pages you visit to provide relevant responses. This content is not stored or transmitted beyond the immediate API call to Google's Generative AI service.
+- **User Queries:** Your questions and prompts are processed in real-time to generate responses but are not saved after the interaction.
+
+### Security
+While we do not collect data, we have implemented the extension with security best practices to ensure that your local information and API key remain protected.
+
+### Third-Party Services
+
+The only external service this extension interacts with is [Google's Generative AI API](https://support.google.com/gemini/answer/13594961?hl=en). Please refer to Google's privacy policy for information on how they handle API requests.
+
+### Your Rights
+Since we do not collect any personal data, there is no personal information for us to provide, correct, or delete. Your interactions with the chatbot remain private and under your control.
+
