@@ -316,6 +316,11 @@ function toggleChatUI() {
                     }
                 });
             };
+            const apiKeyLink = document.createElement('a');
+            apiKeyLink.href = 'https://aistudio.google.com/app/apikey';
+            apiKeyLink.innerText = 'Get API Key';
+            apiKeyLink.target = '_blank';
+            apiKeyForm.appendChild(apiKeyLink);
             apiKeyForm.appendChild(apiKeyInput);
             apiKeyForm.appendChild(formBtn);
             chatUI.appendChild(apiKeyForm);
