@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Gemini Web chat bot",
+  "name": "Gemini Web Chatbot",
   "version": "1.0",
-  "description": "A Chrome extension that lets you talk with Gemini about current web page.",
+  "description": "Let's you talk with Gemini about the current web page you are on.",
   "icons": {
     "16": "google-gemini-icon.png",
     "48": "google-gemini-icon.png",
