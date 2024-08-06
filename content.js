@@ -17,7 +17,7 @@ chatBox.style.cursor = 'pointer';
 chatBox.title = 'Open Chat';
 chatBox.style.zIndex = '10000'; // Ensure chat icon is always over everything else
 const chatIcon = document.createElement('img');
-chatIcon.src = chrome.runtime.getURL('google-gemini-icon.png');
+chatIcon.src = chrome.runtime.getURL('icon.png');
 chatIcon.style.width = '48px';
 chatIcon.style.height = '48px';
 chatIcon.draggable = false;
@@ -282,8 +282,8 @@ function toggleChatUI() {
             const apiKeyInput = document.createElement('input');
             apiKeyInput.type = 'text';
             apiKeyInput.id = 'api-key';
-            apiKeyInput.placeholder = 'Gemini API Key';
-            apiKeyInput.style.padding = '10px';
+            apiKeyInput.placeholder = 'API Key';
+            apiKeyInput.style.padding = '5px';
             apiKeyInput.style.marginBottom = '10px';
             apiKeyInput.style.border = '1px solid #E5E7EB';
             apiKeyInput.style.borderRadius = '4px';
@@ -291,14 +291,14 @@ function toggleChatUI() {
 
             const formBtn = document.createElement('button');
             formBtn.id = 'form-button';
-            formBtn.innerText = 'Set Key';
-            formBtn.style.padding = '10px';
+            formBtn.innerText = 'Set API Key';
+            formBtn.style.padding = '5px';
             formBtn.style.backgroundColor = '#4F46E5';
             formBtn.style.color = '#FFFFFF';
             formBtn.style.border = 'none';
             formBtn.style.borderRadius = '8px';
             formBtn.style.cursor = 'pointer';
-            formBtn.style.width = '100%';
+            formBtn.style.width = '90%';
             formBtn.onmouseover = function() {
                 this.style.backgroundColor = '#4338CA';
             };

@@ -1,7 +1,7 @@
 # AI Web Chatbot
 
 ## Introduction
-The AI Web Chatbot is a Chrome extension that allows users to interact with the Google's Gemini AI directly on any web page. This extension leverages the power of Google Generative AI models to provide real-time assistance and interaction based on the content of the current web page.
+The AI Web Chatbot is a Chrome extension that allows users to interact with AI directly on any web page. This extension leverages the power of AI Language models to provide real-time assistance and interaction based on the content of the current web page.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -23,17 +23,17 @@ To install the AI Web Chatbot Chrome extension, follow these steps:
 2. Open Chrome and navigate to `chrome://extensions/`.
 3. Enable "Developer mode" using the toggle switch in the upper right corner.
 4. Click on the "Load unpacked" button and select the directory containing the extension files.
-5. The Gemini Web Chatbot extension should now appear in your list of installed extensions.
+5. The AI Web Chatbot extension should now appear in your list of installed extensions.
 
 ## Usage
 Once the extension is installed and enabled:
 
 1. Navigate to any web page.
-2. Click on the Gemini Chatbot icon that appears in the lower-right corner of the browser.
+2. Click on the AI Chatbot icon that appears in the lower-right corner of the browser.
 3. Interact with the chatbot by typing your queries and receiving responses directly related to the content of the current web page.
 
 ## Features
-- **Real-time interaction:** Chat with the Gemini AI about the content on the current web page.
+- **Real-time interaction:** Chat with the AI about the content on the current web page.
 - **Customizable safety settings:** Adjust settings to block or allow different categories of content (e.g., harassment, hate speech, sexually explicit content).
 - **Movable and resizable chat window:** Customize the position and size of the chat window for a better user experience.
 
@@ -45,9 +45,9 @@ The AI Web Chatbot relies on the following dependencies:
 
 ## Configuration
 ### Setting the API Key
-To use the Gemini Web Chatbot, you need to provide a valid API key for the Google Generative AI. Follow these steps:
+To use the AI Web Chatbot, you need to provide a valid API key for the AI. Follow these steps:
 
-1. Obtain your API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
+1. Obtain your API key from [Link](https://aistudio.google.com/app/apikey).
 2. When you first open the chat window, you will be prompted to enter your API key.
 3. The key will be stored locally and used for subsequent interactions with the AI.
 
@@ -61,21 +61,21 @@ The extension consists of the following main files:
 ## Examples
 ### Example Interaction
 1. Open any web page.
-2. Click the Gemini Chatbot icon.
+2. Click the AI Chatbot icon.
 3. Enter a query such as "What is this page about?".
 4. The chatbot will analyze the content of the page and provide a relevant response.
 
 ## Troubleshooting
-If you encounter issues with the Gemini Web Chatbot, try the following steps:
+If you encounter issues with the AI Web Chatbot, try the following steps:
 
 1. Ensure you have entered a valid API key.
 2. Check that the extension has the necessary permissions enabled.
-3. Reload the extension by going to `chrome://extensions/` and clicking the reload icon next to the Gemini Web Chatbot.
+3. Reload the extension by going to `chrome://extensions/` and clicking the reload icon next to the AI Web Chatbot.
 
 ## Privacy Policy
 
 ### No Data Collection
-The Gemini Web Chatbot is designed with user privacy as a top priority. We want to assure our users that:
+The AI Web Chatbot is designed with user privacy as a top priority. We want to assure our users that:
 
 1. **We Do Not Collect Any Data:** This extension does not collect, store, or transmit any personal information, browsing history, or chat data.
 

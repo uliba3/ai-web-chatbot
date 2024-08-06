@@ -4,9 +4,7 @@
   "version": "1.0",
   "description": "Lets you talk with AI about the current web page you are on.",
   "icons": {
-    "16": "google-gemini-icon.png",
-    "48": "google-gemini-icon.png",
-    "128": "google-gemini-icon.png"
+    "128": "icon.png"
   },
   "permissions": ["storage"],
   "background": {
@@ -14,7 +12,7 @@
     "type": "module"
   },
   "action": {
-    "default_icon": "google-gemini-icon.png"
+    "default_icon": "icon.png"
   },
   "content_scripts": [
     {
@@ -24,7 +22,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["google-gemini-icon.png", "content.js", "icon.png"],
+      "resources": ["content.js", "icon.png"],
       "matches": ["<all_urls>"]
     }
   ]
