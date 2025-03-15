@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from './generative-ai.js';
-import { MODEL_NAMES } from './constants.js';
+import { MODEL_NAMES } from './background-constants.js';
 
 const safetySetting = [
   {

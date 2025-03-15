@@ -17,12 +17,13 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "js": ["constants.js", "utils.js", "api.js", "content.js"],
+      "css": ["styles.css"]
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["content.js", "icon.png"],
+      "resources": ["content.js", "icon.png", "background-constants.js"],
       "matches": ["<all_urls>"]
     }
   ]
