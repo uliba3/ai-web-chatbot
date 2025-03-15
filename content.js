@@ -84,7 +84,7 @@ function initializeChatUI() {
             <div id="gemini-chat-messages" style="flex: 1; padding: 10px; overflow-y: auto; color: #111827;">
                 <p>Hello! How can we help you today?</p> <!-- Sample interaction added -->
             </div>
-            <input type="text" id="gemini-chat-input" style="padding: 10px; border: none; border-top: 1px solid #E5E7EB; background-color: #F9FAFB; color: #111827;" placeholder="Type a message...">
+            <input type="text" id="gemini-chat-input" style="padding: 10px; border: none; border-top: 1px solid #E5E7EB; border-radius: 10px; background-color: #F9FAFB; color: #111827;" placeholder="Type a message...">
         `;
 
         // Dynamically attach the event listener for sending messages
