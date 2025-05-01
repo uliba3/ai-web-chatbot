@@ -4,7 +4,7 @@
   "version": "1.2.0",
   "description": "Lets you talk with AI about the current web page you are on.",
   "icons": {
-    "128": "icon.png"
+    "128": "icons/icon.png"
   },
   "permissions": ["storage"],
   "background": {
@@ -12,7 +12,7 @@
     "type": "module"
   },
   "action": {
-    "default_icon": "icon.png"
+    "default_icon": "icons/icon.png"
   },
   "content_scripts": [
     {
@@ -23,7 +23,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["content.js", "icon.png", "background-constants.js"],
+      "resources": ["content.js", "icons/icon.png", "background-constants.js"],
       "matches": ["<all_urls>"]
     }
   ]

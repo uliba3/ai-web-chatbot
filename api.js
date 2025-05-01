@@ -25,7 +25,7 @@ window.generateResponse = async function(context, message) {
             {
                 action: API_ENDPOINTS.GENERATE,
                 model: "flash",
-                prompt: `${context}\nYou are given an inner text of current web page, answer the question below.\n${message}`
+                prompt: `${context}\nBased on the inner text of current web page above, answer the question below concisely.\nQuestion: ${message}`
             },
             (response) => {
                 resolve(response);

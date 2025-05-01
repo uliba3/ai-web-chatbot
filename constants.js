@@ -34,5 +34,5 @@ window.MESSAGES = {
 
 window.URLS = {
     API_KEY_PAGE: 'https://aistudio.google.com/app/apikey',
-    CHAT_ICON: 'icon.png'
+    CHAT_ICON: 'icons/icon.png'
 };

@@ -37,7 +37,7 @@ git clone https://github.com/uliba3/ai-web-chatbot.git
 - `constants.js`: Project constants and configurations
 - `styles.css`: Styling for the extension interface
 - `generative-ai.js`: AI model implementation
-- `icon.png`: Extension icon
+- `icons/icon.png`: Extension icon
 
 ## Development
 
