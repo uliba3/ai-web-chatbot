@@ -1,71 +1,71 @@
-window.calculateIconRotation = function(iconElement, mouseX, mouseY) {
-    const iconRect = iconElement.getBoundingClientRect();
-    const iconCenterX = iconRect.left + iconRect.width / 2;
-    const iconCenterY = iconRect.top + iconRect.height / 2;
-    const angleRadians = Math.atan2(mouseY - iconCenterY, mouseX - iconCenterX);
-    let angleDeg = angleRadians * (180 / Math.PI);
-    
-    const cursorOnTheLeft = mouseX < iconCenterX;
-    if (cursorOnTheLeft) {
-        angleDeg += 180;
-    }
-    return {
-        angle: angleDeg,
-        flip: cursorOnTheLeft ? 'scaleX(-1)' : ''
-    };
-};
-
 window.getPageContext = function() {
     const text = document.body.innerText;
     const promptText = "Hello! How can we help you today?";
     return text.substring(0, text.indexOf(promptText) + promptText.length);
 };
 
-window.createResizeHandles = function(chatUI, edges) {
-    Object.entries(edges).forEach(([edge, cursor]) => {
-        const handle = document.createElement('div');
-        handle.className = `resize-handle resize-handle-${edge.length === 1 ? 'ns' : 'corner'}`;
-        handle.style.cursor = cursor;
-        
-        if (edge.includes('n')) handle.style.top = '0';
-        if (edge.includes('s')) handle.style.bottom = '0';
-        if (edge.includes('e')) handle.style.right = '0';
-        if (edge.includes('w')) handle.style.left = '0';
-        
-        chatUI.appendChild(handle);
-        return handle;
-    });
-};
-
-window.handleResize = function(e, chatUI, startDimensions, resizeSide) {
-    const dx = e.clientX - startDimensions.startX;
-    const dy = e.clientY - startDimensions.startY;
-    let newWidth = startDimensions.startWidth;
-    let newHeight = startDimensions.startHeight;
-    const { CHAT_CONFIG } = window;
-
-    if (resizeSide.includes('e')) {
-        newWidth = Math.max(startDimensions.startWidth + dx, CHAT_CONFIG.MIN_WIDTH);
-        chatUI.style.width = `${newWidth}px`;
-    }
-    if (resizeSide.includes('s')) {
-        newHeight = Math.max(startDimensions.startHeight + dy, CHAT_CONFIG.MIN_HEIGHT);
-        chatUI.style.height = `${newHeight}px`;
-    }
-    if (resizeSide.includes('w')) {
-        newWidth = Math.max(startDimensions.startWidth - dx, CHAT_CONFIG.MIN_WIDTH);
-        chatUI.style.width = `${newWidth}px`;
-    }
-    if (resizeSide.includes('n')) {
-        newHeight = Math.max(startDimensions.startHeight - dy, CHAT_CONFIG.MIN_HEIGHT);
-        chatUI.style.height = `${newHeight}px`;
-    }
-
-    return { newWidth, newHeight };
-};
-
 window.updateChatPosition = function(chatUI, chatBox) {
     const chatBoxRect = chatBox.getBoundingClientRect();
     chatUI.style.bottom = `${window.innerHeight - chatBoxRect.top + 10}px`;
     chatUI.style.right = `${window.innerWidth - chatBoxRect.right + 10}px`;
+};
+
+window.enableDragAndDrop = function(chatUI) {
+    const header = chatUI.querySelector('.chat-header');
+    let isDragging = false;
+    let dragOffsetX, dragOffsetY;
+    let startPosX, startPosY;
+    let hasMoved = false;
+    
+    header.addEventListener('mousedown', (e) => {
+        if (e.target.closest('.chat-header')) {
+            console.log('Drag started');
+            isDragging = true;
+            const rect = chatUI.getBoundingClientRect();
+            dragOffsetX = e.clientX - rect.left;
+            dragOffsetY = e.clientY - rect.top;
+            startPosX = chatUI.style.left;
+            startPosY = chatUI.style.top;
+            chatUI.style.cursor = 'grabbing';
+            console.log('Initial position:', { dragOffsetX, dragOffsetY, startPosX, startPosY });
+        }
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            hasMoved = true;
+            const x = e.clientX - dragOffsetX;
+            const y = e.clientY - dragOffsetY;
+            
+            // Keep the chat UI within window bounds
+            const maxX = window.innerWidth - chatUI.offsetWidth;
+            const maxY = window.innerHeight - chatUI.offsetHeight;
+            
+            // Convert right/bottom to left/top for dragging
+            const left = Math.min(Math.max(0, x), maxX);
+            const top = Math.min(Math.max(0, y), maxY);
+            
+            chatUI.style.left = `${left}px`;
+            chatUI.style.top = `${top}px`;
+            chatUI.style.right = 'auto';
+            chatUI.style.bottom = 'auto';
+            
+            console.log('Dragging to position:', { x, y, left, top });
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (isDragging) {
+            console.log('Drag ended', { hasMoved });
+            isDragging = false;
+            chatUI.style.cursor = 'grab';
+        }
+    });
+};
+
+window.disableDragAndDrop = function(chatUI) {
+    const header = chatUI.querySelector('.chat-header');
+    header.removeEventListener('mousedown', null);
+    document.removeEventListener('mousemove', null);
+    document.removeEventListener('mouseup', null);
 };
