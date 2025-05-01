@@ -17,7 +17,6 @@ window.API_ENDPOINTS = {
 };
 
 window.UI_ELEMENTS = {
-    CHAT_BOX_ID: 'gemini-chat-box',
     CHAT_UI_ID: 'gemini-chat-ui',
     CHAT_MESSAGES_ID: 'gemini-chat-messages',
     CHAT_INPUT_ID: 'gemini-chat-input',
