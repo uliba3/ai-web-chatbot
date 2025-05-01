@@ -34,16 +34,27 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "generate") {
     if (modelFlash === undefined || modelPro === undefined) {
       chrome.storage.local.get(["apiKey"]).then((result) => {
-        genAI = new GoogleGenerativeAI(result.apiKey);
-        modelFlash = genAI.getGenerativeModel({ model: MODEL_NAMES.FLASH, safetySetting });
-        modelPro = genAI.getGenerativeModel({ model: MODEL_NAMES.PRO, safetySetting });
+        try {
+          genAI = new GoogleGenerativeAI(result.apiKey);
+          modelFlash = genAI.getGenerativeModel({ model: MODEL_NAMES.FLASH, safetySetting });
+          modelPro = genAI.getGenerativeModel({ model: MODEL_NAMES.PRO, safetySetting });
+        } catch (error) {
+          sendResponse(error.message);
+          return;
+        }
       });
     }
     const model = request.model === "flash" ? modelFlash : modelPro;
     model.generateContent(request.prompt).then((result) => {
-      const response = result.response;
-      const text = response.text();
-      sendResponse(text);
+      try {
+        const response = result.response;
+        const text = response.text();
+        sendResponse(text);
+      } catch (error) {
+        sendResponse(error.message);
+      }
+    }).catch((error) => {
+      sendResponse(error.message);
     });
   }
   if (request.action === "setApiKey") {
